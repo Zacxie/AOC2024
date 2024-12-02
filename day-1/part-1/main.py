@@ -1,14 +1,14 @@
+from utils import read_file_lines, get_input_filename
+
 def read_lists_from_file(filename):
     left_list = []
     right_list = []
 
-    with open(filename, 'r') as file:
-        for line in file:
-            if line.strip():
-                # Split line into two numbers
-                left, right = line.strip().split()
-                left_list.append(int(left))
-                right_list.append(int(right))
+    for line in read_file_lines(filename):
+        # Split line into two numbers
+        left, right = line.split()
+        left_list.append(int(left))
+        right_list.append(int(right))
 
     return left_list, right_list
 
@@ -32,7 +32,11 @@ def solve_puzzle(filename):
     return calculate_total_distance(left_list, right_list)
 
 
+def main():
+    filename = get_input_filename(use_sample=False)
+    result = solve_puzzle(filename)
+    print(f"Solution to part 1: {result}")
 
-# result = solve_puzzle('../sample-puzzle-input.txt')
-result = solve_puzzle('../puzzle-input.txt')
-print(f"Solution to part 1: {result}")
+
+if __name__ == "__main__":
+    main()

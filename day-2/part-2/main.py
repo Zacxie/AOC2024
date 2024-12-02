@@ -1,3 +1,6 @@
+from utils import read_file_lines, get_input_filename
+
+
 def is_safe_report(levels):
     if len(levels) < 2:
         return False
@@ -18,7 +21,6 @@ def is_safe_report(levels):
 
 
 def is_safe_with_dampener(levels):
-
     # check if safe without removing any levels
     if is_safe_report(levels):
         return True
@@ -36,24 +38,17 @@ def is_safe_with_dampener(levels):
 def count_safe_reports(filename):
     safe_count = 0
 
-    with open(filename, 'r') as file:
-        for line in file:
-            if not line.strip():
-                continue
+    for line in read_file_lines(filename):
+        levels = [int(x) for x in line.split()]
 
-            levels = [int(x) for x in line.strip().split()]
-
-            if is_safe_with_dampener(levels):
-                safe_count += 1
-
-
+        if is_safe_with_dampener(levels):
+            safe_count += 1
 
     return safe_count
 
 
 def main():
-    # filename = "../sample-puzzle-input.txt"
-    filename = "../puzzle-input.txt"
+    filename = get_input_filename(use_sample=False)
     result = count_safe_reports(filename)
 
     if result is not None:
