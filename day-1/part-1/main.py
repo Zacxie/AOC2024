@@ -33,6 +33,6 @@ def solve_puzzle(filename):
 
 
 
-# result = solve_puzzle('../sample-puzzle-input-part-1.txt')
-result = solve_puzzle('../puzzle-input-part-1.txt')
+# result = solve_puzzle('../sample-puzzle-input.txt')
+result = solve_puzzle('../puzzle-input.txt')
 print(f"Solution to part 1: {result}")

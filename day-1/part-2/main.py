@@ -28,7 +28,7 @@ def calculate_similarity_score(left_list, right_list):
 
 
 
-# left_list, right_list = read_lists_from_file('../sample-puzzle-input-part-1.txt')
-left_list, right_list = read_lists_from_file('../puzzle-input-part-1.txt')
+# left_list, right_list = read_lists_from_file('../sample-puzzle-input.txt')
+left_list, right_list = read_lists_from_file('../puzzle-input.txt')
 result = calculate_similarity_score(left_list, right_list)
 print(f"Solution to part 2: {result}")
